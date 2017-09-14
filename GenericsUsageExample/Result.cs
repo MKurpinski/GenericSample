@@ -16,9 +16,11 @@ namespace GenericsUsageExample
             Succedeed = succeded;
             Errors = errorList;
         }
+
         public Result(T value) : this(value, true, null) { }
 
         public Result(ICollection<string> errorList) : this(default(T), false, errorList) { }
+
         public Result(string error) : this(default(T), false, new List<string>{error}) { }
 
         public static Result<T>  Success(T value)
@@ -30,11 +32,11 @@ namespace GenericsUsageExample
         {
             return new Result<T>(errorList);
         }
+
         public static Result<T> Failure(string error)
         {
             return new Result<T>(error);
         }
-
 
         public void AddError(string error)
         {
