@@ -49,7 +49,6 @@ namespace GenericsUsageExample.Tests
 
             Assert.IsTrue(result.Succedeed);
             AssertForSinglePerson(expectedValue, result.Value);
-            Assert.IsNull(result.Errors);
         }
 
         [Test]
@@ -72,7 +71,6 @@ namespace GenericsUsageExample.Tests
                 AssertForSinglePerson(expectedValue[i], result.Value.ElementAt(i));
             }
             Assert.AreEqual(expectedValue.Count, result.Value.Count);
-            Assert.IsNull(result.Errors);
         }
 
         [Test]

@@ -17,7 +17,7 @@ namespace GenericsUsageExample
             Errors = errorList;
         }
 
-        public Result(T value) : this(value, true, null) { }
+        public Result(T value) : this(value, true, new List<string>()) { }
 
         public Result(ICollection<string> errorList) : this(default(T), false, errorList) { }
 
@@ -25,7 +25,7 @@ namespace GenericsUsageExample
 
         public static Result<T>  Success(T value)
         {
-            return new Result<T>(value, true, null);
+            return new Result<T>(value);
         }
 
         public static Result<T> Failure(ICollection<string> errorList)
@@ -40,14 +40,7 @@ namespace GenericsUsageExample
 
         public void AddError(string error)
         {
-            if (Errors != null)
-            {
-                Errors.Add(error);
-            }
-            else
-            {
-                Errors = new List<string>{error};
-            }
+            Errors.Add(error);
         }
     }
 }
